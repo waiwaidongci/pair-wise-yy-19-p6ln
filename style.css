@@ -6,6 +6,7 @@
   --line: #c9d6cf;
   --accent: #2b7666;
   --amber: #b98225;
+  --danger: #b3402e;
 }
 
 * {
@@ -126,7 +127,31 @@ textarea {
 
 .editor button {
   width: 100%;
+}
+
+.form-actions {
+  display: grid;
+  gap: 8px;
   margin-top: 14px;
+}
+
+button.ghost {
+  background: #e8f0eb;
+  color: var(--ink);
+}
+
+.field-error {
+  margin: 6px 0 0;
+  color: var(--danger);
+  font-size: 12px;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .board {
@@ -181,6 +206,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
 }
@@ -221,6 +247,92 @@ textarea {
   object-fit: cover;
   border-radius: 6px;
   background: #dfe9e4;
+}
+
+.edited-mark {
+  color: var(--amber) !important;
+  font-size: 12px !important;
+}
+
+.history-dialog {
+  width: min(560px, calc(100vw - 32px));
+  max-height: 80vh;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 16px;
+}
+
+.history-dialog::backdrop {
+  background: rgb(23 32 29 / 45%);
+}
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.dialog-head button {
+  min-height: 32px;
+}
+
+.history-list {
+  display: grid;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.version-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+}
+
+.version-card.current {
+  border-color: var(--accent);
+}
+
+.version-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.version-card header span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.version-note {
+  margin: 4px 0;
+  color: var(--amber);
+  font-size: 12px;
+}
+
+.version-card p {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.version-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 6px 0;
+  background: #dfe9e4;
+}
+
+.version-card button {
+  min-height: 32px;
+  margin-top: 6px;
 }
 
 @media (max-width: 1120px) {
